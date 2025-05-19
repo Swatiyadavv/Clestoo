@@ -33,7 +33,7 @@ function Login() {
          if(res.status===200)
          {
            toast.success(res.data.message);
-           navigate('/Home')
+           navigate('/Dashboard')
          }
     }
     catch(error)

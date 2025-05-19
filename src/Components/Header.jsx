@@ -1,9 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaChartPie } from 'react-icons/fa';
 import SessionManager from '../../utils/Session';
-
-const Header = ({ isOpen }) => {
+import Clesto from '../assets/clesto.jpg'
+const Header = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -11,25 +11,22 @@ const Header = ({ isOpen }) => {
         navigate('/Login');
         };
          return (
-        <header className={`bg-white shadow-lg transition-all duration-300 ${isOpen ? 'pl-54' : 'pl-14'}`}>
+        <header className={`bg-purple-200 shadow-lg`}>
             <div className="max-w-7xl px-1 py-1 mx-auto sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center py-3">
                     <div className="flex items-center space-x-2">
-                        <div className="bg-purple-700 rounded-full p-4">
-                            <FaChartPie className="text-white" size={20} />
-                        </div>
-                        <span className="text-4xl font-bold  text-purple-900">Clesto</span>
+                        <img 
+                        src={Clesto}
+                        className='w-50 -ml-5'/>
                     </div>
                     <nav className="space-x-4">
-                        <a href="/Home" className="text-purple-700 hover:text-purple-900">Home</a>
-                        <a href="/About" className="text-purple-700 hover:text-purple-900">About</a>
-                        <a href="/Service" className="text-purple-700 hover:text-purple-900">Products</a>
-                        <a href="/Contact" className="text-purple-700 hover:text-purple-900">Privacy Policy</a>
-                           <a href="/Home" className="text-purple-700 hover:text-purple-900">Contact Us</a>
-                        <a href="/About" className="text-purple-700 hover:text-purple-900">Search</a>
+                        <Link to="/Home" className="text-purple-700 hover:text-purple-800">Home</Link>
+                        <Link to="/About" className="text-purple-700 hover:text-purple-800">About</Link>
+                        <Link to="/PrivacyPolicy" className="text-purple-700 hover:text-purple-800">Privacy Policy</Link>
+                           <Link to="/ContactUs" className="text-purple-700 hover:text-purple-800">Contact Us</Link>
                     </nav>
                     <div>
-                        <button onClick={handleLogout} className="bg-purple-800 hover:bg-purple-900 rounded-lg px-4 py-2 text-white">
+                        <button onClick={handleLogout} className="bg-purple-800 hover:bg-purple-900 rounded-lg px-4 py-2 text-white -mr-100">
                             Log Out
                         </button>
                     </div>
@@ -38,5 +35,4 @@ const Header = ({ isOpen }) => {
         </header>
     );
 };
-
 export default Header;

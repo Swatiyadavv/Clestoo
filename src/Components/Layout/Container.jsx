@@ -1,21 +1,13 @@
-import React, { useState } from 'react';
-import Sidebar from '../Sidebar';
+import React from 'react';
 import Header from '../header';
 
 function Container({ children }) {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen);
-    };
-
     return (
         <div className="h-screen flex flex-col">
-            <Header isOpen={isOpen} />
-            <div className="flex flex-1">
-               <Sidebar isOpen={isOpen} toggleSidebar={toggleSidebar} />
-                <div className="flex-1 p-4 overflow-auto">
-                    {children}
-                </div>
+            {/* Static Header */}
+            <Header />
+            <div className="flex-1 p-0 m-0 overflow-auto">
+                {children}
             </div>
         </div>
     );
