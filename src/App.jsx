@@ -7,6 +7,9 @@ import Email from './Components/Email';
 import ConfirmPassword from './Components/ConfirmPassword';
 import Home from './Components/Home';
 import Dashboard from './Components/Dashboard';
+import About from './Components/About';
+import PrivacyPolicy from './Components/PrivacyPolicy';
+import Contactus from './Components/Contactus';
 function App() {
   return (
    <BrowserRouter>
@@ -19,9 +22,9 @@ function App() {
     <Route path='/ConfirmPassword' element={<ConfirmPassword/>}></Route>
     <Route path='/Dashboard' element={<Dashboard/>}></Route>
     <Route path='/Home' element={<Dashboard/>}></Route>
-    <Route path='/About' element={<Dashboard/>}></Route>
-    <Route path='/PrivacyPolicy' element={<Dashboard/>}></Route>
-    <Route path='/ContactUs' element={<Dashboard/>}></Route> 
+    <Route path='/About' element={<About/>}></Route>
+    <Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}></Route>
+    <Route path='/ContactUs' element={<Contactus/>}></Route> 
    </Routes>
    </BrowserRouter>
   )

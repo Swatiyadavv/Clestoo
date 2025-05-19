@@ -1,6 +1,13 @@
 import React from 'react'
 import clestoRight from '../assets/flower.jpg'
+import { useNavigate } from 'react-router-dom'
 function RightImage() {
+  const navigate = useNavigate()
+  const handleButton = (e)=>
+  {
+    e.preventDefault()
+    navigate('/About')
+  }
   return (
   <div className='grid grid-cols-1 md:grid-cols-2 items-center p-8 gap-4'>
   <div className='space-y-4'>
@@ -9,7 +16,7 @@ function RightImage() {
 “Clesto” is one of “Madar Group” ‘s many brands, and it specializes in personal care and cosmetics.
  our mother Company Madar Group is a group of manufacturing and distribution companies specializing
  in detergents and consumer products for home care, personal care, childcare, and cosmetics.</p>
-   <button className='px-4 py-2 border border-gray-400 rounded-md hover:bg-gray-200'>MORE</button>
+   <button onClick={handleButton} className='px-4 py-2 border border-gray-400 rounded-md hover:bg-gray-200'>MORE</button>
   </div>
   <div className='flex justify-center'>
     <img src={clestoRight}
