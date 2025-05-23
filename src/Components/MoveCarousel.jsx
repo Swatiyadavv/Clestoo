@@ -18,8 +18,7 @@ const products = [
     image: nike,
     bgColor: 'bg-gradient-to-r from-red-200 to-red-400',
   },
-  
-];
+  ];
 const MoveCarousel = () => {
 const [currentIndex, setCurrentIndex] = useState(0);
 useEffect(() => {
@@ -28,7 +27,6 @@ useEffect(() => {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
   const product = products[currentIndex];
 
   return (
@@ -46,7 +44,8 @@ useEffect(() => {
               >
                 <h3 className="font-bold text-black-900 text-7xl mb-2">{product.title}</h3>
                 <p className="text-black-700 mb-4 text-4xl">{product.description}</p>
-                {/* <button className="px-8 py-4 border border-blue-950 rounded-4xl hover:bg-blue-700 text-blue-700 hover:text-white transition">
+                {
+                /* <button className="px-8 py-4 border border-blue-950 rounded-4xl hover:bg-blue-700 text-blue-700 hover:text-white transition">
                   View Product
                 </button> */}
               </motion.div>
@@ -63,5 +62,6 @@ useEffect(() => {
       </div>
     </div>
   );
-};
+}
+
 export default MoveCarousel;

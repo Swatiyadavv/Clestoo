@@ -1,8 +1,9 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import SessionManager from '../../utils/Session';
 import { toast, ToastContainer } from 'react-toastify';
-
+import Cookies from 'js-cookie';
 import AuthLayout from './Layout/Authlayout';
 function Login() { 
    const[email,setEmail] = useState("")
@@ -30,12 +31,18 @@ function Login() {
         email:email,
         password:password
       })
-         if(res.status===200)
-         {
-           toast.success(res.data.message);
-           navigate('/Dashboard')
-         }
+     if (res.status === 200) {
+      const { token, user } = res.data.data; 
+      SessionManager.session.setToken(token);
+      if (user) {
+        SessionManager.session.setUserData(user);
+      }
+      toast.success(res.data.message);
+      setTimeout(() => {
+        navigate("/Dashboard");
+      }, 1000);
     }
+  }
     catch(error)
     {
       toast.error(error.response?.data?.message)
@@ -70,9 +77,9 @@ function Login() {
                             <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
                           </div>
                       </div>
-                      <Link to="/Email" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</Link>
+                      <Link to="/Email" class="text-sm font-medium  text-white text-primary-600 hover:underline dark:text-primary-500">Forgot password?</Link>
                   </div>
-                  <button type="submit" onClick={getLogin} class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
+                  <button type="submit" onClick={getLogin} class="w-full text-white border border-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                   <p class="text-sm font-light text-gray-500 dark:text-gray-400" >
                       Don't have an account yet? <Link to="/Signup" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</Link>
                   </p>

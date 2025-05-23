@@ -1,8 +1,17 @@
 import React from 'react'
 import feat from '../assets/feat.jpg'
+import { useNavigate } from 'react-router-dom';
 function FeaturedProduct() {
+  const navigate = useNavigate();
+  const handleSubmit = (e)=>
+    {
+      e.preventDefault();
+      navigate('/About')
+
+    }
   return (
-    <div className='bg-gray-800'> 
+    
+    <div className='bg-gray-900'> 
      <div className='text-center'>
     <span className='text-bold bg-purple-800 text-white text-3xl rounded-2xl inline-block px-4 py-2 mt-10'>
         FEATURED PRODUCT
@@ -36,11 +45,11 @@ function FeaturedProduct() {
 
             </li>
       </ul>
-      <button className='px-4 py-2 border text-white border-gray-400 rounded-md hover:bg-gray-200'>MORE</button>
+      <button onClick={handleSubmit} className='px-4 py-2 border text-white border-gray-400 rounded-md hover:bg-gray-200'>MORE</button>
      </div>
     </div>
     </div>
      )
 }
 
-export default FeaturedProduct
+export default FeaturedProduct;

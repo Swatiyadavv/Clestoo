@@ -2,9 +2,10 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import AuthLayout from './Layout/Authlayout';
+import { toast, ToastContainer } from 'react-toastify';
 function Email() {
     const [email,setEmail] = useState("");
-    const navigate = useNavigate("")
+    const navigate = useNavigate()
 
 
     const forgotPassword = async(e) =>
@@ -17,14 +18,19 @@ function Email() {
         {
              if(res.status===200)
              {
-                console.log(res.data.message);
-                navigate('/OTPGenerator',{state:{email}})
+                toast.success(res.data.message);
+                // navigate('/OTPGenerator',{state:{email}})
+                setTimeout(()=>
+            {
+              navigate('/OTPGenerator',{state:{email}})
+            },1000)
             }
         })
-        .catch(error)
+        .catch((error)=>
         {
             console.log(error);
-        }
+            toast.error(error.response.data.message)
+        })
     }
 
   return (
@@ -57,6 +63,7 @@ function Email() {
                 </div>
             </div>
           </section>
+          <ToastContainer/>
           </AuthLayout>
             )
           }

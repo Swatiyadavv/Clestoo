@@ -52,5 +52,4 @@ function FeaturedProduct1() {
     </div>
   );
 }
-
 export default FeaturedProduct1;

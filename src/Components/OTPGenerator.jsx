@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import AuthLayout from './Layout/Authlayout';
+import { toast, ToastContainer } from 'react-toastify';
 function OTPGenerator() {
   const [otp, setOtp] = useState(new Array(6).fill(''));  
   const inputRefs = useRef([]);
@@ -37,15 +38,17 @@ function OTPGenerator() {
     })
     .then((res) => {
       if (res.status === 200) {
-        console.log(res.data.message);
-        navigate('/ConfirmPassword', { state: { email } });
+        toast.success(res.data.message);
+             setTimeout(()=>
+            {
+              navigate('/ConfirmPassword', { state: { email } });
+            },1000)
       }
     })
     .catch((error) => {
-      console.log(error.response?.data?.message || 'Request failed!');
+      toast.error(error.response.data.message || 'Request failed!');
     });
   };
-
   return (
     <AuthLayout>
     <section>
@@ -73,6 +76,7 @@ function OTPGenerator() {
         </button>
       </div>
     </section>
+    <ToastContainer/>
     </AuthLayout>
   );
 }

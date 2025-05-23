@@ -6,6 +6,7 @@ import Makeup from './Makeup'
 import FeaturedProduct from './FeaturedProduct'
 import MoveCarousel from './MoveCarousel'
 import FeaturedProduct1 from './FeaturedProduct1'
+import NewProduct from './NewProduct'
 function Dashboard() {
   return (
     <Container>
@@ -17,6 +18,9 @@ function Dashboard() {
         </div>
          <div>
             <FeaturedProduct1/>
+        </div>
+        <div>
+            <NewProduct/>
         </div>
         <div>
             <FeaturedProduct/>

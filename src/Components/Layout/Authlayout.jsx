@@ -13,10 +13,6 @@ function AuthLayout({ children }) {
         </div>
     </div>
 </div>
-
-    );
+  );
 }
-
 export default AuthLayout;
-
-

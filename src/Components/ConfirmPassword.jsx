@@ -35,12 +35,15 @@ function ConfirmPassword() {
         if(res.status===200)
         {
           toast.success(res.data.message);
-          navigate('/Login')
+          setTimeout(()=>
+          {
+            navigate('/Login')
+          },1000)
         }
       }
       catch(error)
       {
-        toast.error(error.response?.data?.message)
+        toast.error(error.response.data.message)
       }
     }
   return (

@@ -17,16 +17,16 @@ const Header = () => {
                     <div className="flex items-center space-x-2">
                         <img 
                         src={Clesto}
-                        className='w-50 -ml-5'/>
+                        className='w-50 '/>
                     </div>
                     <nav className="space-x-4">
                         <Link to="/Home" className="text-purple-700 hover:text-purple-800">Home</Link>
                         <Link to="/About" className="text-purple-700 hover:text-purple-800">About</Link>
                         <Link to="/PrivacyPolicy" className="text-purple-700 hover:text-purple-800">Privacy Policy</Link>
-                           <Link to="/ContactUs" className="text-purple-700 hover:text-purple-800">Contact Us</Link>
+                        <Link to="/ContactUs" className="text-purple-700 hover:text-purple-800">Contact Us</Link>
                     </nav>
                     <div>
-                        <button onClick={handleLogout} className="bg-purple-800 hover:bg-purple-900 rounded-lg px-4 py-2 text-white -mr-100">
+                        <button onClick={handleLogout} className="bg-purple-800 hover:bg-purple-900 rounded-lg px-4 py-2 text-white ">
                             Log Out
                         </button>
                     </div>
