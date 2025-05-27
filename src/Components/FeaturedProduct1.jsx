@@ -6,7 +6,9 @@ function FeaturedProduct1() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/style/all')
+    // axios.get('http://localhost:5000/style/all')
+    axios.get(`${import.meta.env.VITE_APP_API_URL}/style/all`)
+
       .then(res => {
         if (res.status === 200) {
           setProducts(res.data.data); // Assuming your API sends data in res.data.data

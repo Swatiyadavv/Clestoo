@@ -14,7 +14,10 @@ function Contactus() {
       e.preventDefault()
       try
       {
-        const res = await axios.post('http://localhost:5000/contact/add',
+        const res = 
+        // await axios.post('http://localhost:5000/contact/add',
+        axios.post(`${import.meta.env.VITE_APP_API_URL}/contact/add`,
+
           { 
           email,
           Subject,

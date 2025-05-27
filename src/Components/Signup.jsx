@@ -31,7 +31,9 @@ function Signup() {
         return;
     }
     try{
-    const res = await axios.post('http://localhost:5000/user/',
+    const res =
+    //  await axios.post('http://localhost:5000/user/',
+    await axios.post(`${import.meta.env.VITE_APP_API_URL}/user/`,
         {
          email:email,
          password:password,

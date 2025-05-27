@@ -30,9 +30,12 @@ function OTPGenerator() {
 
   const verifyOTP = (e) => {
     e.preventDefault();
-    // Join the OTP array to form a single string
+
     const otpString = otp.join('');
-    axios.post(`http://localhost:5000/user/verifyOTP/${email}`, {
+    // axios.post(`http://localhost:5000/user/verifyOTP/${email}`,
+    axios.post(`${import.meta.env.VITE_APP_API_URL}/user/verifyOTP/${email}`,
+
+       {
       email: email,
       otp: otpString
     })

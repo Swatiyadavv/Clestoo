@@ -26,7 +26,10 @@ function ConfirmPassword() {
         return;
       }
       try{
-        const res = await axios.patch(`http://localhost:5000/user/resetPassword/${email}`,
+        const res = await 
+        // axios.patch(`http://localhost:5000/user/resetPassword/${email}`,
+        axios.patch(`${import.meta.env.VITE_APP_API_URL}/user/resetPassword/${email}`,
+
         {
            password:password,
            ConfirmPassword:ConfirmPassword  

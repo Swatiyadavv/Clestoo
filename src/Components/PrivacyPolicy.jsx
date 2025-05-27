@@ -5,8 +5,6 @@ function PrivacyPolicy() {
   return (
     <Container>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8 bg-white rounded-lg shadow-md max-w-6xl mx-auto mt-8">
-        
-        {/* Privacy Policy Text Section */}
         <div className="flex flex-col justify-center p-4">
           <h2 className="text-4xl font-bold mb-6 text-gray-800">Privacy Policy</h2>
           <p className="text-gray-600 mb-6 leading-relaxed">
@@ -48,5 +46,4 @@ function PrivacyPolicy() {
     </Container>
   );
 }
-
 export default PrivacyPolicy;

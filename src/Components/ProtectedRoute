@@ -11,15 +11,14 @@ const ProtectedRoute = ({ children }) => {
     if (!token) {
       navigate('/Login', { replace: true });
     } else {
-      setIsAuthChecked(true); // Allow rendering
+      setIsAuthChecked(true); 
     }
   }, [navigate]);
 
   if (!isAuthChecked) {
-    return null; // or loading spinner
+    return null; 
   }
 
   return children;
 };
-
 export default ProtectedRoute;

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Container from './Layout/Container';
-function FeaturedProduct1() {
+function Upcoming() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     // axios.get('http://localhost:5000/style/all')
-     axios.get(`${import.meta.env.VITE_APP_API_URL}/style/all`)
-      .then(res => {
+    axios.get(`${import.meta.env.VITE_APP_API_URL}/style/all`)
+     .then(res => {
         if (res.status === 200) {
           setProducts(res.data.data); 
         }
@@ -21,12 +21,7 @@ function FeaturedProduct1() {
     <Container>
     <div className="p-4">
       <div className="max-w-4xl mx-auto bg-white p-6 rounded shadow-md mb-8 text-center">
-        <h3 className="text-2xl font-semibold mb-2 text-purple-800">About Clesto</h3>
-        <p className="text-purple-900 text-lg">
-          Clesto is a lifestyle brand that merges quality with innovation. Our curated range of 
-          products aims to meet diverse customer needs, offering reliable and stylish solutions 
-          for modern living. Discover the best with Clesto!
-        </p>
+        <h3 className="text-2xl font-semibold mb-2 text-purple-800">OUR NEW CLESTO PRODUCT WILL COMIMG SOON</h3>
       </div>
       <div 
         className="grid gap-4"
@@ -41,13 +36,13 @@ function FeaturedProduct1() {
             className="border p-4 rounded shadow hover:shadow-lg transition-shadow duration-300 text-purple-800"
             style={{ textAlign: 'center' }}
           >
-    
+           
               <img 
                 src={product.img} 
                 alt={product.name} 
                 className="w-full h-40 object-cover rounded hover:opacity-80 transition-opacity duration-300"
               />
-           
+         
             <h3 className="text-lg font-semibold mt-2">{product.name}</h3>
             <p>{new Date(product.Date).toLocaleDateString()}</p>
           </div>
@@ -58,4 +53,4 @@ function FeaturedProduct1() {
   );
 }
 
-export default FeaturedProduct1;
+export default Upcoming;
