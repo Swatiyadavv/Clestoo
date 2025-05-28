@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../header';
+import Header from '../Header'
 
 function Container({ children }) {
     return (
@@ -11,5 +11,4 @@ function Container({ children }) {
         </div>
     );
 }
-
 export default Container;

@@ -57,5 +57,4 @@ function FeaturedProduct1() {
     </Container>
   );
 }
-
 export default FeaturedProduct1;
